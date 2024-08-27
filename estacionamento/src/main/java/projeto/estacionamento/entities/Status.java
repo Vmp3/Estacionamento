@@ -13,16 +13,14 @@ public class Status {
     private Long id;
     private String nomeStatus;
 
-    // Construtores
+
     public Status() {
     }
-
     public Status(Long id, String nomeStatus) {
         this.id = id;
         this.nomeStatus = nomeStatus;
     }
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

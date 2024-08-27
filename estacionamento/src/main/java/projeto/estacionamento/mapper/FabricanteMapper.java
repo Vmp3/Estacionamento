@@ -52,9 +52,6 @@ public class FabricanteMapper {
     }
 
     public Status toEntity(StatusDTO statusDTO) {
-        if (statusDTO == null) {
-            return null;
-        }
         return new Status(
             statusDTO.getId(),
             statusDTO.getNomeStatus()

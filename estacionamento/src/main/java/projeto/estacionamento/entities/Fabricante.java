@@ -17,7 +17,7 @@ public class Fabricante {
     private String nome;
     private String pais;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "statusId", referencedColumnName = "id")
     private Status status;
 
