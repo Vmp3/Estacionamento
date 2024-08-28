@@ -55,10 +55,22 @@ public class FabricanteService {
         if (!fabricanteRepository.existsById(id)) {
             return null;
         }
-        fabricanteDTO.setId(id);
-        Fabricante fabricante = fabricanteMapper.toEntity(fabricanteDTO);
-        fabricante = fabricanteRepository.save(fabricante);
-        return fabricanteMapper.toDTO(fabricante);
+    
+   
+        Status statusExistente = statusRepository.findById(fabricanteDTO.getStatus().getId())
+            .orElseThrow(() -> new IllegalArgumentException("Status informado não encontrado"));
+    
+    
+        Fabricante fabricanteExistente = fabricanteRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Fabricante não encontrado"));
+    
+        fabricanteExistente.setNome(fabricanteDTO.getNome());
+        fabricanteExistente.setPais(fabricanteDTO.getPais());
+        fabricanteExistente.setStatus(statusExistente); 
+    
+
+        fabricanteExistente = fabricanteRepository.save(fabricanteExistente);
+        return fabricanteMapper.toDTO(fabricanteExistente);
     }
 
     public void deleteFabricante(Long id) {

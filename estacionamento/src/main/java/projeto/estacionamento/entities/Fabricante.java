@@ -32,7 +32,6 @@ public class Fabricante {
         this.status = status;
     }
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

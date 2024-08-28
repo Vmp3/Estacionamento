@@ -45,10 +45,10 @@ public class FabricanteMapper {
         if (status == null) {
             return null;
         }
-        return new StatusDTO(
-            status.getId(),
-            status.getNomeStatus()
-        );
+        StatusDTO statusDTO = new StatusDTO();
+        statusDTO.setId(status.getId());
+        statusDTO.setNomeStatus(status.getNomeStatus());
+        return statusDTO;
     }
 
     public Status toEntity(StatusDTO statusDTO) {

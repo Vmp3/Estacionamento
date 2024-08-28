@@ -12,10 +12,10 @@ import java.util.stream.Collectors;
 public class StatusMapper {
 
     public StatusDTO toDTO(Status status) {
-        return new StatusDTO(
-            status.getId(),
-            status.getNomeStatus()
-        );
+        StatusDTO statusDTO = new StatusDTO();
+        statusDTO.setId(status.getId());
+        statusDTO.setNomeStatus(status.getNomeStatus());
+        return statusDTO;
     }
 
     public Status toEntity(StatusDTO statusDTO) {
