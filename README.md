@@ -169,14 +169,17 @@
 <h2>Configuração e Execução</h2>
 
 <h3>Clonar o Repositório</h3>
-<pre><code>git clone https://github.com/Vmp3/projeto-estacionamento.git</code></pre>
+<pre><code>git clone https://github.com/Vmp3/estacionamento.git</code></pre>
 
 <h3>Configurar o Banco de Dados</h3>
-<p>Crie um banco de dados MySQL.</p>
-<p>Atualize as configurações de conexão no arquivo <code>application.properties</code> ou <code>application.yml</code>:</p>
+<p>Crie um banco de dados MySQL com o nome "estacionamento".</p>
+<p>No caminho <code>Estacionamento\estacionamento\src\main\resources</code>, crie o arquivo <code>application.properties</code></p>
+<p>Adicione essas informações:</p>
 <pre><code>spring.datasource.url=jdbc:mysql://localhost:3306/estacionamento
-spring.datasource.username=usuario
-spring.datasource.password=senha</code></pre>
+spring.datasource.username=usuario_do_banco
+spring.datasource.password=senha_do_banco
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update</code></pre>
 
 <h3>Construir o Projeto</h3>
 <p>Navegue até o diretório do projeto e execute o comando Maven para construir o projeto:</p>
