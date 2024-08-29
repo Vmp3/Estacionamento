@@ -23,39 +23,148 @@
 
 <h3>Fabricantes</h3>
 <ul>
-    <li><strong>GET /fabricantes</strong> - Retorna a lista de todos os fabricantes.</li>
-    <li><strong>GET /fabricantes/{id}</strong> - Retorna os detalhes de um fabricante específico pelo ID.</li>
-    <li><strong>POST /fabricantes</strong> - Cria um novo fabricante.
-    <li><strong>PUT /fabricantes/{id}</strong> - Atualiza os dados de um fabricante específico pelo ID.</li>
-    <li><strong>DELETE /fabricantes/{id}</strong> - Remove um fabricante específico pelo ID.</li>
+    <li><strong>GET /fabricantes</strong>
+        <pre><code>
+// Retorna a lista de todos os fabricantes
+</code></pre>
+    </li>
+    <li><strong>GET /fabricantes/{id}</strong>
+        <pre><code>
+// Retorna os detalhes de um fabricante específico pelo ID
+</code></pre>
+    </li>
+    <li><strong>POST /fabricantes</strong>
+        <pre><code>{
+  "nome": "Nome do Fabricante",
+  "pais": "País do Fabricante",
+  "status": {
+    "id": 2
+  }
+}</code></pre>
+    </li>
+    <li><strong>PUT /fabricantes/{id}</strong>
+        <pre><code>{
+  "nome": "Nome do Fabricante Atualizado",
+  "pais": "País do Fabricante Atualizado",
+  "status": {
+    "id": 1
+  }
+}</code></pre>
+    </li>
+    <li><strong>DELETE /fabricantes/{id}</strong>
+        <pre><code>
+// Remove um fabricante específico pelo ID
+</code></pre>
+    </li>
 </ul>
 
 <h3>Modelos</h3>
 <ul>
-    <li><strong>GET /modelos</strong> - Retorna a lista de todos os modelos.</li>
-    <li><strong>GET /modelos/{id}</strong> - Retorna os detalhes de um modelo específico pelo ID.</li>
-    <li><strong>POST /modelos</strong> - Cria um novo modelo.</li>
-    <li><strong>PUT /modelos/{id}</strong> - Atualiza os dados de um modelo específico pelo ID.</li>
-    <li><strong>DELETE /modelos/{id}</strong> - Remove um modelo específico pelo ID.</li>
+    <li><strong>GET /modelos</strong>
+        <pre><code>
+// Retorna a lista de todos os modelos
+</code></pre>
+    </li>
+    <li><strong>GET /modelos/{id}</strong>
+        <pre><code>
+// Retorna os detalhes de um modelo específico pelo ID
+</code></pre>
+    </li>
+    <li><strong>POST /modelos</strong>
+        <pre><code>{
+  "nome": "Nome do Modelo",
+  "fabricante": {
+    "id": 1
+  },
+  "tipo": {
+    "id": 2
+  }
+}</code></pre>
+    </li>
+    <li><strong>PUT /modelos/{id}</strong>
+        <pre><code>{
+  "nome": "Nome do Modelo Atualizado",
+  "fabricante": {
+    "id": 1
+  },
+  "tipo": {
+    "id": 2
+  }
+}</code></pre>
+    </li>
+    <li><strong>DELETE /modelos/{id}</strong>
+        <pre><code>
+// Remove um modelo específico pelo ID
+</code></pre>
+    </li>
 </ul>
 
 <h3>Tipos</h3>
 <ul>
-    <li><strong>GET /tipos</strong> - Retorna a lista de todos os tipos de veículos.</li>
-    <li><strong>GET /tipos/{id}</strong> - Retorna os detalhes de um tipo específico pelo ID.</li>
-    <li><strong>POST /tipos</strong> - Cria um novo tipo de veículo.</li>
-    <li><strong>PUT /tipos/{id}</strong> - Atualiza os dados de um tipo específico pelo ID.</li>
-    <li><strong>DELETE /tipos/{id}</strong> - Remove um tipo específico pelo ID.</li>
+    <li><strong>GET /tipos</strong>
+        <pre><code>
+// Retorna a lista de todos os tipos
+</code></pre>
+    </li>
+    <li><strong>GET /tipos/{id}</strong>
+        <pre><code>
+// Retorna os detalhes de um tipo específico pelo ID
+</code></pre>
+    </li>
+    <li><strong>POST /tipos</strong>
+        <pre><code>{
+  "nome": "Nome do Tipo"
+}</code></pre>
+    </li>
+    <li><strong>PUT /tipos/{id}</strong>
+        <pre><code>{
+  "nome": "Nome do Tipo Atualizado"
+}</code></pre>
+    </li>
+    <li><strong>DELETE /tipos/{id}</strong>
+        <pre><code>
+// Remove um tipo específico pelo ID
+</code></pre>
+    </li>
 </ul>
 
 <h3>Veículos</h3>
 <ul>
-    <li><strong>GET /veiculos</strong> - Retorna a lista de todos os veículos.</li>
-    <li><strong>GET /veiculos/{id}</strong> - Retorna os detalhes de um veículo específico pelo ID.</li>
-    <li><strong>POST /veiculos</strong> - Cria um novo veículo.</li>
-    <li><strong>PUT /veiculos/{id}</strong> - Atualiza os dados de um veículo específico pelo ID.</li>
-    <li><strong>DELETE /veiculos/{id}</strong> - Remove um veículo específico pelo ID.</li>
+    <li><strong>GET /veiculos</strong>
+        <pre><code>
+// Retorna a lista de todos os veículos
+</code></pre>
+    </li>
+    <li><strong>GET /veiculos/{id}</strong>
+        <pre><code>
+// Retorna os detalhes de um veículo específico pelo ID
+</code></pre>
+    </li>
+    <li><strong>POST /veiculos</strong>
+        <pre><code>{
+  "placa": "AAA-1234",
+  "cor": "Cor do Veículo",
+  "modelo": {
+    "id": 1
+  }
+}</code></pre>
+    </li>
+    <li><strong>PUT /veiculos/{id}</strong>
+        <pre><code>{
+  "placa": "AAA-1234",
+  "cor": "Cor Atualizada do Veículo",
+  "modelo": {
+    "id": 1
+  }
+}</code></pre>
+    </li>
+    <li><strong>DELETE /veiculos/{id}</strong>
+        <pre><code>
+// Remove um veículo específico pelo ID
+</code></pre>
+    </li>
 </ul>
+
 
 <h2>Configuração e Execução</h2>
 
