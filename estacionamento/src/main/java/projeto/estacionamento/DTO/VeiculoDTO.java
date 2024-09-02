@@ -6,7 +6,7 @@ public class VeiculoDTO {
     private String cor;
     private ModeloDTO modelo;
 
-    // Construtores
+ 
     public VeiculoDTO() {
     }
 
@@ -17,7 +17,7 @@ public class VeiculoDTO {
         this.modelo = modelo;
     }
 
-    // Getters e Setters
+  
     public Long getId() {
         return id;
     }

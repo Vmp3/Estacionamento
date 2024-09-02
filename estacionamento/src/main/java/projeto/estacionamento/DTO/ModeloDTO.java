@@ -6,7 +6,7 @@ public class ModeloDTO {
     private FabricanteDTO fabricante;
     private TipoDTO tipo;
 
-    // Construtores
+ 
     public ModeloDTO() {
     }
 
@@ -17,7 +17,7 @@ public class ModeloDTO {
         this.tipo = tipo;
     }
 
-    // Getters e Setters
+ 
     public Long getId() {
         return id;
     }

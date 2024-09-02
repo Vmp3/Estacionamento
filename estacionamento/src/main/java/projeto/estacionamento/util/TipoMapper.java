@@ -1,4 +1,4 @@
-package projeto.estacionamento.mapper;
+package projeto.estacionamento.util;
 
 import org.springframework.stereotype.Component;
 
@@ -13,6 +13,13 @@ public class TipoMapper {
     }
 
     public Tipo toEntity(TipoDTO tipoDTO) {
-        return new Tipo(tipoDTO.getId(), tipoDTO.getNome());
+        if (tipoDTO == null) {
+            return null; 
+        }
+        Tipo tipo = new Tipo();
+        tipo.setId(tipoDTO.getId());
+        tipo.setNome(tipoDTO.getNome());
+        return tipo;
     }
+    
 }

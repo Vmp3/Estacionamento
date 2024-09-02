@@ -1,4 +1,4 @@
-package projeto.estacionamento.mapper;
+package projeto.estacionamento.util;
 
 import org.springframework.stereotype.Component;
 

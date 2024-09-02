@@ -4,7 +4,7 @@ public class TipoDTO {
     private Long id;
     private String nome;
 
-    // Construtores
+
     public TipoDTO() {
     }
 
@@ -13,7 +13,6 @@ public class TipoDTO {
         this.nome = nome;
     }
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

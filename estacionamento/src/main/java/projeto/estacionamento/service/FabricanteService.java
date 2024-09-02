@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import projeto.estacionamento.DTO.FabricanteDTO;
 import projeto.estacionamento.entities.Fabricante;
 import projeto.estacionamento.entities.Status;
-import projeto.estacionamento.mapper.FabricanteMapper;
 import projeto.estacionamento.repository.FabricanteRepository;
 import projeto.estacionamento.repository.StatusRepository;
+import projeto.estacionamento.util.FabricanteMapper;
 
 @Service
 public class FabricanteService {
