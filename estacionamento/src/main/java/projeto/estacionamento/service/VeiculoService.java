@@ -5,8 +5,9 @@ import org.springframework.stereotype.Service;
 
 import projeto.estacionamento.DTO.VeiculoDTO;
 import projeto.estacionamento.entities.Veiculo;
-import projeto.estacionamento.mapper.VeiculoMapper;
 import projeto.estacionamento.repository.VeiculoRepository;
+import projeto.estacionamento.util.ValidarPlaca;
+import projeto.estacionamento.util.VeiculoMapper;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,6 +34,11 @@ public class VeiculoService {
     }
 
     public VeiculoDTO createVeiculo(VeiculoDTO veiculoDTO) {
+ 
+        if (!ValidarPlaca.isValid(veiculoDTO.getPlaca())) {
+            throw new IllegalArgumentException("Placa inválida. O formato deve ser LLLNNNN ou LLLNLNN.");
+        }
+
         Veiculo veiculo = veiculoMapper.toEntity(veiculoDTO);
         Veiculo novoVeiculo = veiculoRepository.save(veiculo);
         return veiculoMapper.toDTO(novoVeiculo);

@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 
 import projeto.estacionamento.DTO.TipoDTO;
 import projeto.estacionamento.entities.Tipo;
-import projeto.estacionamento.mapper.TipoMapper;
 import projeto.estacionamento.repository.TipoRepository;
+import projeto.estacionamento.util.TipoMapper;
 
 import java.util.List;
 import java.util.Optional;

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import projeto.estacionamento.DTO.StatusDTO;
 import projeto.estacionamento.entities.Status;
-import projeto.estacionamento.mapper.StatusMapper;
 import projeto.estacionamento.repository.StatusRepository;
+import projeto.estacionamento.util.StatusMapper;
 
 @Service
 public class StatusService {

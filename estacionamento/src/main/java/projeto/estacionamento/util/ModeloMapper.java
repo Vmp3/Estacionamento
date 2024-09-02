@@ -1,4 +1,4 @@
-package projeto.estacionamento.mapper;
+package projeto.estacionamento.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -7,52 +7,29 @@ import projeto.estacionamento.DTO.FabricanteDTO;
 import projeto.estacionamento.DTO.ModeloDTO;
 import projeto.estacionamento.DTO.StatusDTO;
 import projeto.estacionamento.DTO.TipoDTO;
-import projeto.estacionamento.DTO.VeiculoDTO;
-import projeto.estacionamento.entities.Fabricante;
 import projeto.estacionamento.entities.Modelo;
+import projeto.estacionamento.entities.Fabricante;
 import projeto.estacionamento.entities.Tipo;
-import projeto.estacionamento.entities.Veiculo;
 import projeto.estacionamento.entities.Status;
 
 @Component
-public class VeiculoMapper {
+public class ModeloMapper {
 
     @Autowired
-    private ModeloMapper modeloMapper;
+    private FabricanteMapper fabricanteMapper;
 
-    public VeiculoDTO toDTO(Veiculo veiculo) {
-        if (veiculo == null) {
-            return null;
-        }
-        return new VeiculoDTO(
-            veiculo.getId(),
-            veiculo.getPlaca(),
-            veiculo.getCor(),
-            toModeloDTO(veiculo.getModelo())
-        );
-    }
+    @Autowired
+    private TipoMapper tipoMapper;
 
-    public Veiculo toEntity(VeiculoDTO veiculoDTO) {
-        if (veiculoDTO == null) {
-            return null;
-        }
-        return new Veiculo(
-            veiculoDTO.getId(),
-            veiculoDTO.getPlaca(),
-            veiculoDTO.getCor(),
-            modeloMapper.toEntity(veiculoDTO.getModelo())
-        );
-    }
-
-    public ModeloDTO toModeloDTO(Modelo modelo) {
+    public ModeloDTO toDTO(Modelo modelo) {
         if (modelo == null) {
             return null;
         }
         return new ModeloDTO(
             modelo.getId(),
             modelo.getNome(),
-            toFabricanteDTO(modelo.getFabricante()),
-            toTipoDTO(modelo.getTipo())
+            fabricanteMapper.toDTO(modelo.getFabricante()),
+            tipoMapper.toDTO(modelo.getTipo())
         );
     }
 
@@ -63,8 +40,8 @@ public class VeiculoMapper {
         return new Modelo(
             modeloDTO.getId(),
             modeloDTO.getNome(),
-            toEntity(modeloDTO.getFabricante()),
-            toEntity(modeloDTO.getTipo())
+            fabricanteMapper.toEntity(modeloDTO.getFabricante()),
+            tipoMapper.toEntity(modeloDTO.getTipo())
         );
     }
 
@@ -76,7 +53,7 @@ public class VeiculoMapper {
             fabricante.getId(),
             fabricante.getNome(),
             fabricante.getPais(),
-            toStatusDTO(fabricante.getStatus()) // Mapeamento do status
+            fabricante.getStatus() != null ? toStatusDTO(fabricante.getStatus()) : null // Mapeamento do status
         );
     }
 
