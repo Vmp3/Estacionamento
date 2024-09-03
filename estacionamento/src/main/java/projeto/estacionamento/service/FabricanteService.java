@@ -49,7 +49,9 @@ public class FabricanteService {
         fabricante = fabricanteRepository.save(fabricante);
         return fabricanteMapper.toDTO(fabricante);
     }
-    
+    public List<Fabricante> buscarFabricantesPorPais(String pais) {
+        return fabricanteRepository.findByPais(pais);
+    }
 
     public FabricanteDTO updateFabricante(Long id, FabricanteDTO fabricanteDTO) {
         if (!fabricanteRepository.existsById(id)) {

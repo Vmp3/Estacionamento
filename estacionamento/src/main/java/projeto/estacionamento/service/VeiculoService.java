@@ -43,6 +43,7 @@ public class VeiculoService {
         Veiculo novoVeiculo = veiculoRepository.save(veiculo);
         return veiculoMapper.toDTO(novoVeiculo);
     }
+    
 
     public VeiculoDTO updateVeiculo(Long id, VeiculoDTO veiculoDTO) {
         Optional<Veiculo> veiculoExistente = veiculoRepository.findById(id);

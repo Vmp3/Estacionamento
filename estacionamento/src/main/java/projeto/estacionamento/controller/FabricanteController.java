@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import projeto.estacionamento.DTO.FabricanteDTO;
+import projeto.estacionamento.entities.Fabricante;
 import projeto.estacionamento.service.FabricanteService;
 
 import java.util.List;
@@ -49,5 +50,11 @@ public class FabricanteController {
     public ResponseEntity<Void> deleteFabricante(@PathVariable Long id) {
         fabricanteService.deleteFabricante(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/pais")
+    public ResponseEntity<List<Fabricante>> buscarFabricantesPorPais(@RequestParam String pais) {
+        List<Fabricante> fabricantes = fabricanteService.buscarFabricantesPorPais(pais);
+        return ResponseEntity.ok(fabricantes);
     }
 }
