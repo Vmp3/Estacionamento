@@ -1,13 +1,14 @@
 package projeto.estacionamento.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import projeto.estacionamento.DTO.ModeloDTO;
+import projeto.estacionamento.entities.Modelo;
 import projeto.estacionamento.service.ModeloService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/modelos")
@@ -29,6 +30,7 @@ public class ModeloController {
         }
         return ResponseEntity.ok(modelo);
     }
+
     @PostMapping
     public ResponseEntity<ModeloDTO> createModelo(@RequestBody ModeloDTO modeloDTO) {
         ModeloDTO novoModelo = modeloService.createModelo(modeloDTO);
@@ -48,5 +50,22 @@ public class ModeloController {
     public ResponseEntity<Void> deleteModelo(@PathVariable Long id) {
         modeloService.deleteModelo(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/por-pais")
+    public ResponseEntity<List<Modelo>> getModelosByPais(@RequestParam String pais) {
+        List<Modelo> modelos = modeloService.findByFabricantePais(pais);
+        if (modelos.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(modelos);
+    }
+    @GetMapping("/por-teste")
+    public ResponseEntity<List<Modelo>> findModelosByFabricantePais(@RequestParam String pais) {
+        List<Modelo> modelos = modeloService.findModelosByFabricantePais(pais);
+        if (modelos.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(modelos);
     }
 }

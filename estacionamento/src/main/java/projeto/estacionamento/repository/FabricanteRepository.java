@@ -11,4 +11,5 @@ import projeto.estacionamento.entities.Fabricante;
 public interface FabricanteRepository extends JpaRepository<Fabricante, Long> {
     List<Fabricante> findByPais(String pais);
 
+    List<Fabricante> findByPaisContaining(String pais);
 }

@@ -53,6 +53,10 @@ public class FabricanteService {
         return fabricanteRepository.findByPais(pais);
     }
 
+    public List<Fabricante> findByPaisContaining(String pais) {
+        return fabricanteRepository.findByPaisContaining(pais);
+    }
+    
     public FabricanteDTO updateFabricante(Long id, FabricanteDTO fabricanteDTO) {
         if (!fabricanteRepository.existsById(id)) {
             return null;

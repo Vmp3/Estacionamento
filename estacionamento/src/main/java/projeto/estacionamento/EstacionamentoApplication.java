@@ -20,11 +20,11 @@ public class EstacionamentoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Verifica se o status com ID 1 já existe
+
         if (!statusRepository.existsById(1L)) {
-            // Se não existir, cria o status "Ativo" com ID 1
+
             Status statusAtivo = new Status();
-            statusAtivo.setId(1L); // Define o ID como 1
+            statusAtivo.setId(1L);
             statusAtivo.setNomeStatus("Ativo");
             statusRepository.save(statusAtivo);
             System.out.println("Status 'Ativo' criado com ID 1.");

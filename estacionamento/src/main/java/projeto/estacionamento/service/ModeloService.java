@@ -32,6 +32,13 @@ public class ModeloService {
         return modelo.map(modeloMapper::toDTO).orElse(null);
     }
 
+    public List<Modelo> findByFabricantePais(String pais) {
+        return modeloRepository.findByFabricantePais(pais);
+    }
+    public List<Modelo> findModelosByFabricantePais(String pais) {
+        return modeloRepository.findModelosByFabricantePais(pais);
+    }
+
     public ModeloDTO createModelo(ModeloDTO modeloDTO) {
         Modelo modelo = modeloMapper.toEntity(modeloDTO);
         Modelo novoModelo = modeloRepository.save(modelo);

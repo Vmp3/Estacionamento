@@ -57,4 +57,14 @@ public class FabricanteController {
         List<Fabricante> fabricantes = fabricanteService.buscarFabricantesPorPais(pais);
         return ResponseEntity.ok(fabricantes);
     }
+
+    @GetMapping("/sub")
+    public ResponseEntity<List<Fabricante>> getFabricantesByPais(@RequestParam String pais) {
+        List<Fabricante> fabricantes = fabricanteService.findByPaisContaining(pais);
+        if (fabricantes.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(fabricantes);
+        }
+    }
 }
